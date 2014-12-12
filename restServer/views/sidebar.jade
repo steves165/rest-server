@@ -1,0 +1,25 @@
+md-sidenav.md-sidenav-right.md-whiteframe-z2(md-component-id='right')
+	div(ng-controller='RightCtrl')
+		md-toolbar.md-theme-light(layout='row')
+			h1.md-toolbar-tools(flex).
+				Social Media
+			md-button.md-fab.md-primary.close-btn(aria-label='sidebar', ng-click='close()') X
+				md-tooltip.
+					Close Sidebar
+		md-content.md-padding
+			p.
+				Below you will find links to all of the social media sites and internet presences I have, please feel free to view, follow or friend me on any of them.
+			ul.sidebar-list
+				li.sidebar-item
+					md-button.md-raised.md-primary.md-indigo-theme(href='https://www.facebook.com/steves165') My Facebook
+				li.sidebar-item
+					md-button.md-raised.md-primary.md-indigo-theme.twitter-follow-button(href='https://twitter.com/steves165', target='_blank') Twitter
+				li.sidebar-item
+					md-button.md-raised.md-primary.md-indigo-theme(href='http://uk.linkedin.com/pub/stephen-skidmore/7a/62a/207') LinkedIn
+				li.sidebar-item
+					md-button.md-raised.md-primary.md-indigo-theme(href='https://steves165.deviantart.com') My Deviantart
+				li.sidebar-item
+					md-button.md-raised.md-primary.md-indigo-theme(href='//plus.google.com/111705954203668088961?prsrc=3', rel='publisher', target='_top') Google+
+				li.sidebar-item
+					md-button.md-raised.md-primary.md-indigo-theme(href='https://youtube.com/steves165') My Youtube Channel
+				

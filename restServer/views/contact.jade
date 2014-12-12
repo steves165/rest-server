@@ -1,0 +1,11 @@
+md-content(ng-if='json.form', md-theme='red')
+	form(style='padding: 20px')
+		fieldset.row
+			legend Email form
+			div.form-el
+				md-text-float(label='Name', ng-model='contact.name')
+				md-text-float(label='Email', ng-model='contact.email')
+				md-text-float.content-inp(label='Content', ng-model='contact.content')
+			div.submit-row(layout='row', md-theme='indigo')
+				md-button.md-primary.md-raised.submit-cont(type='submit') Submit
+				md-button.md-warn.md-raised(type='reset') Reset
