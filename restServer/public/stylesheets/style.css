@@ -132,6 +132,9 @@ li.sidebar-item {
   }
 }
 
+.main-content {
+  overflow: visible;
+}
 
 
 .textFielddemoBasicUsage {
