@@ -34,7 +34,6 @@ app.use('/javascript', javascript);
 app.use('/custompc', custompc);
 app.use('/youtube', yt);
 app.use('/users', users);
-app.use('/rest', rest);
 app.use('/.rest', restMain);
 app.use('/profile', profile);
 
