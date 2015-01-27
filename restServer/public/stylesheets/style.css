@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -86,6 +85,54 @@ li.sidebar-item {
 .main-cont p {
   display: block !important;
 }
+
+.title-container {
+  width: 100%;
+}
+
+.md-button.md-fab {
+  width: 60px;
+}
+
+.collapse-nav .nav-btn {
+  margin-bottom: 10px;
+}
+
+.collapse-nav {
+  position: absolute;
+  top: 60px;
+  left: 10px;
+}
+
+.navigation-toggle {
+  width: 400px;
+}
+
+.nav-fab-button {
+  position: absolute;
+  right: 0;
+  top: 3px;
+}
+
+.first-nav-fab {
+  right: 70px;
+}
+
+.collapse-nav {
+  width: 400px;
+}
+
+@media screen and (max-width: 767px) {
+  .collapse-nav {
+    width: 300px;
+  }
+
+  .navigation-toggle {
+    width: 300px;
+  }
+}
+
+
 
 .textFielddemoBasicUsage {
   /**

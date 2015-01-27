@@ -1,148 +1,106 @@
 'use strict';
 
-var app = angular.module('mainApp', ['ngMaterial', 'ngRoute']);
+angular.module('mainApp')
 
-app.controller('MainCtrl', function($scope, $mdToast, $animate, $mdSidenav, $mdDialog, $interpolate, $timeout, restService) {
+	.controller('MainCtrl', function($scope, $mdToast, $animate, $mdSidenav, $mdDialog, $interpolate, $timeout, restService) {
 
-	$scope.toastPosition = {
-		bottom: false,
-		top: true,
-		left: true,
-		right: false
-	};
+		$scope.toastPosition = {
+			bottom: false,
+			top: true,
+			left: true,
+			right: false
+		};
 
-	$scope.json = {
-		main: ['TEMP']
-	};
+		$scope.json = {
+			main: ['TEMP']
+		};
 
-	$scope.contact = {
-		name: '',
-		email: '',
-		content: ''
-	};
+		$scope.contact = {
+			name: '',
+			email: '',
+			content: ''
+		};
 
-	$scope.theBestVideo = 'sMKoNBRZM1M';
+		$scope.isCollapsed = true;
 
-	function evalAsync(page) {
-		$scope.$evalAsync(function() {
-			restService.getRest(page).then(function(data) {
-				applyRemoteData(data);
+		$scope.theBestVideo = 'sMKoNBRZM1M';
+
+		function evalAsync(page) {
+			$scope.$evalAsync(function() {
+				restService.getRest(page).then(function(data) {
+					applyRemoteData(data);
+				});
 			});
-		});
-	}
+		}
 
-	function applyRemoteData(json) {
-		$scope.json = json;
+		function applyRemoteData(json) {
+			$scope.json = json;
 
-		var j = json;
-		var i = 0;
+			var j = json;
+			var i = 0;
 
-		json.main.forEach(function(data) {
-			j.main[i] = $interpolate(data)($scope);
-			i++;
-		});
-
-		$scope.json = j;
-
-		var ind = 0;
-		var dex = 0;
-
-		$timeout(function() {
-			$('.main-cont p').each(function(_, data) {
-				$(data).html($scope.json.main[ind]);
-				ind++;
+			json.main.forEach(function(data) {
+				j.main[i] = $interpolate(data)($scope);
+				i++;
 			});
-		});
-    }
 
-	// $scope.changePage = function(page, txt) {
-	// 	evalAsync(page);
-	// 	$scope.showActionToast(txt);
-	// };
+			$scope.json = j;
 
-	$scope.toggleRight = function() {
-		$mdSidenav('right').toggle();
-	};
+			var ind = 0;
+			var dex = 0;
 
-	$scope.getToastPosition = function() {
-		return Object.keys($scope.toastPosition)
-		.filter(function(pos) { return $scope.toastPosition[pos]; })
-		.join(' ');
-	};
+			$timeout(function() {
+				$('.main-cont p').each(function(_, data) {
+					$(data).html($scope.json.main[ind]);
+					ind++;
+				});
+			});
+	    }
 
-	$scope.showActionToast = function(txt) {
-		var toast = $mdToast.simple()
-		.content(txt)
-		.action('CLOSE')
-		.highlightAction(false)
-		.position($scope.getToastPosition());
-		$mdToast.show(toast).then(function() {
-			$mdToast.hide();
-		});
-	};
+		// $scope.changePage = function(page, txt) {
+		// 	evalAsync(page);
+		// 	$scope.showActionToast(txt);
+		// };
 
-	$scope.showAdvanced = function(ev) {
-		$mdDialog.show({
-			controller: DialogController,
-			templateUrl: '/javascripts/templates/dialog.html',
-			targetEvent: ev,
-		});
-	};
+		$scope.toggleRight = function() {
+			$mdSidenav('right').toggle();
+		};
 
-	// $scope.changePage('home', 'Welcome to my website!');
-});
+		$scope.getToastPosition = function() {
+			return Object.keys($scope.toastPosition)
+			.filter(function(pos) { return $scope.toastPosition[pos]; })
+			.join(' ');
+		};
 
-app.controller('RightCtrl', function($scope, $timeout, $mdSidenav, $mdDialog) {
-	$scope.close = function() {
-		$mdSidenav('right').close();
-	};
+		$scope.showActionToast = function(txt) {
+			var toast = $mdToast.simple()
+			.content(txt)
+			.action('CLOSE')
+			.highlightAction(false)
+			.position($scope.getToastPosition());
+			$mdToast.show(toast).then(function() {
+				$mdToast.hide();
+			});
+		};
 
-});
+		$scope.showAdvanced = function(ev) {
+			$mdDialog.show({
+				controller: DialogController,
+				templateUrl: '/javascripts/templates/dialog.html',
+				targetEvent: ev,
+			});
+		};
 
-app.service('restService', function($http, $q) {
+		// $scope.changePage('home', 'Welcome to my website!');
+	})
 
-	return({
-		getRest : getRest
+	.controller('RightCtrl', function($scope, $timeout, $mdSidenav, $mdDialog) {
+		$scope.close = function() {
+			$mdSidenav('right').close();
+		};
+
 	});
 
-	function handleError( response ) {
-        // The API response from the server should be returned in a
-        // nomralized format. However, if the request was not handled by the
-        // server (or what not handles properly - ex. server error), then we
-        // may have to normalize it on our end, as best we can.
-        if (
-        	!angular.isObject( response.data ) ||
-        	!response.data.message
-        	) {
-        	return( $q.reject( "An unknown error occurred." ) );
-    }
-        // Otherwise, use expected error message.
-        return( $q.reject( response.data.message ) );
-    }
-
-
-    // I transform the successful response, unwrapping the application data
-    // from the API response payload.
-    function handleSuccess( response ) {
-    	return( response.data );
-    }
-
-
-    function getRest(page) {
-    	var request = $http({
-    		method: "post",
-    		url: "/.rest/main?page=" + page
-    	});
-
-    	return(request.then(handleSuccess, handleError));
-    }
-});
-
-app.directive('restSwitch', function() {
-	return function($scope, $element) {
-		$scope.changePage('youtube', 'Welcome to my Youtube channel');
-	};
-});
 
 function DialogController($scope, $mdDialog) {
 	$scope.hide = function() {
