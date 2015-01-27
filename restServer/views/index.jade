@@ -1,15 +1,4 @@
 extends layout
 
 block content
-	div(layout='row')
-		md-content.md-padding.md-indigo-theme.main-content(style='height:600px', layout='column')
-			div(style='overflow:scroll; height:600px')
-				h1.
-					{{json.subtitle}}
-				div.main-cont(ng-repeat='content in json.main', layout='column')
-					p
-				div(ng-if='json.links', ng-repeat='link in json.links')
-					md-button.md-radiate.md-primary.md-indigo-theme(ng-if='link.listShow', ng-href='{{link.link}}') {{link.text}}
-				include contact
-				include youtube
-	include sidebar
+	include main-content

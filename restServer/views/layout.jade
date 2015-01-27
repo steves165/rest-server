@@ -13,6 +13,7 @@ html(ng-app='mainApp')
 		script(src='/javascripts/clock.js')
 		script(src='/javascripts/hammerjs/hammer.min.js')
 		script(src='/javascripts/angular/angular.js')
+		script(src='/javascripts/angular.route.js')
 		script(src='/javascripts/angular-animate/angular-animate.js')
 		script(src='/javascripts/angular-aria/angular-aria.js')
 		script(src='/javascripts/angular-material/angular-material.js')
@@ -25,19 +26,19 @@ html(ng-app='mainApp')
 					md-toolbar(layout='row')
 						div.md-toolbar-tools
 							span.md-flex(flex)
-								md-button.md-raised.md-primary.md-indigo-theme.nav-btn(ng-click='changePage("home", "Welcome to the home page")').
+								md-button.md-raised.md-primary.md-indigo-theme.nav-btn(href='/').
 									Home
-								md-button.md-raised.md-primary.md-indigo-theme.nav-btn(ng-click='changePage("js", "Welcome to the JavaScript page")').
+								md-button.md-raised.md-primary.md-indigo-theme.nav-btn(href='/javascript').
 									Javascript
 								md-button.md-raised.md-warn.nav-btn(ng-click='changePage("youtube", "My Youtube Channel")').
 									My Youtube Channel
-								md-button.md-raised.md-primary.md-indigo-theme.nav-btn(ng-click='changePage("cpb", "Welcome to the PC building page")').
+								md-button.md-raised.md-primary.md-indigo-theme.nav-btn(href='/custompc').
 									Custom PC Buidling
 								md-button.md-raised.md-warn.nav-btn.
 									Flash
-								md-button.md-raised.md-primary.md-indigo-theme.nav-btn(ng-click='changePage("profile", "Welcome to my profile page")').
+								md-button.md-raised.md-primary.md-indigo-theme.nav-btn(href='/profile').
 									Profile
-								md-button.md-raised.md-primary.md-indigo-theme.nav-btn(ng-click='changePage("contact", "Welcome to my contact page")').
+								md-button.md-raised.md-primary.md-indigo-theme.nav-btn(href='/profile').
 									Contact
 							md-button.md-fab.md-primary(aria-label='sidebar', ng-click='toggleRight()')
 								md-tooltip.
@@ -47,4 +48,8 @@ html(ng-app='mainApp')
 								md-tooltip.
 									Show Clock
 								md-icon(icon='/images/time.svg', style='top: 7px; position: absolute; left: 16px;')
-					block content
+					div(layout='row')
+						md-content.md-padding.md-indigo-theme.main-content(style='height:600px', layout='column')
+							div(style='overflow:scroll; height:600px')
+								block content
+					include sidebar
