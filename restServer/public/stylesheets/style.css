@@ -125,10 +125,18 @@ li.sidebar-item {
 @media screen and (max-width: 767px) {
   .collapse-nav {
     width: 300px;
+    position: absolute;
+    top: 64px;
+    left: 50%;
+    margin-left: -145px;
   }
 
   .navigation-toggle {
     width: 300px;
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    margin-left: -150px;
   }
 }
 
