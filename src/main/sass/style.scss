@@ -3,13 +3,13 @@ body {
 }
 
 .container {
-   @media (min-width: $screen-sm-min) {
+   @media screen and (min-width: $screen-sm-min) {
      min-width: 750px;
    }
-   @media (min-width: $screen-md-min) {
+   @media screen and (min-width: $screen-md-min) {
      min-width: 970px;
    }
-   @media (min-width: $screen-lg-min) {
+   @media screen and (min-width: $screen-lg-min) {
      min-width: 1170px;
    }
 }
