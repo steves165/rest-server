@@ -26,7 +26,7 @@ var paths = {
 };
 
 gulp.task('scripts-build', function() {
-	gulp.src(paths.src.js + '**/*.js')
+	gulp.src(paths.src.js + '**/*.*')
 		.pipe(plumber(function (error) {
             gutil.log(gutil.colors.red(error.message));
             gutil.beep();
