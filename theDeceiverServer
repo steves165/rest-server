@@ -54,7 +54,7 @@
 # MIN_UPTIME="5000"
 # SPIN_SLEEP_TIME="2000"
  
-NAME="restServer"
+NAME="theDeceiver"
 NODE_BIN_DIR="/usr/bin"
 NODE_PATH="/usr/lib/node_modules"
 APPLICATION_PATH="/var/www/the-deceiver/deceiver-site/bin/www"
