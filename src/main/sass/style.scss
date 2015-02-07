@@ -142,7 +142,7 @@ li.sidebar-item {
   margin-bottom: 20px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $screen-sm-max) {
   .collapse-nav {
     width: 300px;
     position: absolute;
@@ -175,7 +175,7 @@ li.sidebar-item {
   margin-top: -40px;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: $screen-md-min) {
   .calc-btn {
     width: 100px;
   }
@@ -199,117 +199,123 @@ label.md-red-theme {
   color: #f44336;
 }
 
+.textFielddemoBasicUsage form > .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-left: -8px;
+}
 
-.textFielddemoBasicUsage {
-  /**
- *  SaSS version
- *
- * form > .row {
- *   @include flex-display();
- *   @include flex-align-items(center);
- *   @include flex-direction(row);
- *
- *   > * {
- *     font-size: inherit;
- *     margin: 0 8px;
- *   }
- *
- *   margin-left: -8px;
- * }
- *
- *
- * md-input-group.long {
- *   input {
- *      width : 262px;
- *   }
- * }
- *
-*/ }
-  .textFielddemoBasicUsage form > .row {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    align-items: center;
-    -webkit-box-direction: normal;
-    -webkit-box-orient: horizontal;
-    -webkit-flex-direction: row;
-    -moz-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    margin-left: -8px; }
-  .textFielddemoBasicUsage .row > * {
-    font-size: inherit;
-    margin-left: 8px;
-    margin-right: 8px; }
-  .textFielddemoBasicUsage md-input-group.long > input {
-    width: 264px; }
+.textFielddemoBasicUsage .row > * {
+  font-size: inherit;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.textFielddemoBasicUsage md-input-group.long > input {
+  width: 264px;
+}
 
 .dialogdemoBasicUsage .full {
   width: 100%;
-  height: 100%; }
-  .dialogdemoBasicUsage .gap {
-    width: 50px; }
-    .dialogdemoBasicUsage .md-subheader {
-      background-color: #dcedc8;
-      margin: 0px; }
-      .dialogdemoBasicUsage h2.md-subheader {
-        margin: 0px;
-        margin-left: -24px;
-        margin-right: -24px;
-        margin-top: -24px; }
-        .dialogdemoBasicUsage h2.md-subheader.md-sticky-clone {
-          margin-right: 0px;
-          margin-top: 0px;
-          box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, 0.16); }
-          .dialogdemoBasicUsage h2 .md-subheader-content {
-            padding-left: 10px; }
+  height: 100%; 
+}
 
-            .buttondemoBasicUsage {
-            /** From vulcanized demo **/ }
-            .buttondemoBasicUsage section {
-              background: #f7f7f7;
-              border-radius: 3px;
-              text-align: center;
-              margin: 1em;
-              position: relative !important;
-              padding-bottom: 10px; }
-              .buttondemoBasicUsage md-content {
-                margin-right: 7px; }
-                .buttondemoBasicUsage section .md-button:not(.md-fab) {
-                  min-width: 10em; }
-                  .buttondemoBasicUsage section .md-button {
-                    display: block;
-                    margin: 1em;
-                    line-height: 25px; }
-                    .buttondemoBasicUsage .label {
-                      position: absolute;
-                      bottom: 5px;
-                      left: 7px;
-                      color: #ccc;
-                      font-size: 14px; }
+.dialogdemoBasicUsage .gap {
+  width: 50px; 
+}
 
-                      .tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button, .tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button:hover {
-                        box-shadow: none;
-                        border: none;
-                        transform: none;
-                        -webkit-transform: none; }
-                        .tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button:hover button {
-                          background: rgba(46, 168, 109, 0.8); }
-                          .tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button:focus, .tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button button:focus {
-                            background: #2ea86d; }
-                            .tooltipdemoBasicUsage .left {
-                              top: 70px !important;
-                              left: 56px !important; }
-                              .tooltipdemoBasicUsage .right {
-                                top: 70px !important;
-                                right: 56px !important; }
+.dialogdemoBasicUsage .md-subheader {
+  background-color: #dcedc8;
+  margin: 0px; 
+}
+
+.dialogdemoBasicUsage h2.md-subheader {
+  margin: 0px;
+  margin-left: -24px;
+  margin-right: -24px;
+  margin-top: -24px;
+}
+
+.dialogdemoBasicUsage h2.md-subheader.md-sticky-clone {
+  margin-right: 0px;
+  margin-top: 0px;
+  box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, 0.16);
+}
+
+.dialogdemoBasicUsage h2 .md-subheader-content {
+  padding-left: 10px;
+}
+
+.buttondemoBasicUsage section {
+  background: #f7f7f7;
+  border-radius: 3px;
+  text-align: center;
+  margin: 1em;
+  position: relative !important;
+  padding-bottom: 10px;
+}
+
+.buttondemoBasicUsage md-content {
+  margin-right: 7px;
+}
+                
+.buttondemoBasicUsage section .md-button:not(.md-fab) {
+  min-width: 10em; 
+}
+                  
+.buttondemoBasicUsage section .md-button {
+  display: block;
+  margin: 1em;
+  line-height: 25px; 
+}
+                    
+.buttondemoBasicUsage .label {
+  position: absolute;
+  bottom: 5px;
+  left: 7px;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button, .tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button:hover {
+  box-shadow: none;
+  border: none;
+  transform: none;
+  -webkit-transform: none; 
+}
+
+.tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button:hover button {
+  background: rgba(46, 168, 109, 0.8);
+}
+
+.tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button:focus, .tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button button:focus {
+  background: #2ea86d;
+}
+
+.tooltipdemoBasicUsage .left {
+  top: 70px !important;
+  left: 56px !important;
+}
+                              
+.tooltipdemoBasicUsage .right {
+  top: 70px !important;
+  right: 56px !important;
+}
 
 a, button, a:hover, button:hover, a:visited, button:visited, a:focus, button:focus {
   outline: none;
