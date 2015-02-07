@@ -29,7 +29,7 @@ angular.module('mainApp')
 
 		$scope.prevValue = 0;
 
-		var $template = $.get('/javascripts/templates/calculator.html').then(function(data) {return data;});
+		var $template = $.get('/js/templates/calculator.html').then(function(data) {return data;});
 
 		function evalAsync(page) {
 			$scope.$evalAsync(function() {
@@ -92,7 +92,7 @@ angular.module('mainApp')
 		$scope.showAdvanced = function(ev) {
 			$mdDialog.show({
 				controller: DialogController,
-				templateUrl: '/javascripts/templates/dialog.html',
+				templateUrl: '/js/templates/dialog.html',
 				targetEvent: ev,
 			});
 		};
