@@ -73,4 +73,4 @@ gulp.task('server-construct', function() {
 		.pipe(gulp.dest(paths.target.root));
 });
 
-gulp.task('dev-hard', ['scripts-build', 'styles-build', 'views-build', 'routes-build', 'images-copy', 'server-construct']);
+gulp.task('build', ['scripts-build', 'styles-build', 'views-build', 'routes-build', 'images-copy', 'server-construct']);
