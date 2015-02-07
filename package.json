@@ -1,7 +1,7 @@
 {
-  "name": "restServer",
+  "name": "theDeceiver",
   "version": "1.0.0",
-  "description": "rest sever",
+  "description": "The Decevier Website",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,12 +15,9 @@
     "express": "^4.10.4",
     "gulp": "~3.8.10",
     "gulp-angular-templatecache": "~1.5.0",
-    "gulp-bower": "0.0.10",
     "gulp-cat": "~0.3.2",
     "gulp-concat": "~2.4.3",
     "gulp-html-replace": "~1.4.4",
-    "gulp-jshint": "~1.9.0",
-    "gulp-less": "~2.0.1",
     "gulp-minify-css": "~0.3.11",
     "gulp-plumber": "~0.6.6",
     "gulp-sourcemaps": "~1.2.8",
