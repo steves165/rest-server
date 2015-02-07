@@ -1,8 +1,0 @@
-h1= subtitle
-div.main-cont(layout='column')
-	each thing in main
-		p !{thing}
-	if links
-		div(flex)
-			each link in links
-				md-button.md-raised.md-primary.md-indigo-theme(href=link.link)= link.text
