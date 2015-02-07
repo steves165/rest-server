@@ -4,7 +4,6 @@ var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
 var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
-var jshint = require('gulp-jshint');
 var minifyCSS = require('gulp-minify-css');
 var cat = require('gulp-cat');
 var templateCache = require('gulp-angular-templatecache');
