@@ -2,6 +2,12 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.container {
+  @media (max-width: @screen-lg-min) {
+     min-width: 1140px;	
+  }
+}
+
 a {
   color: #00B7FF;
 }
