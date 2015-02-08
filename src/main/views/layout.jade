@@ -5,110 +5,7 @@ html(ng-app='mainApp')
 		title= title
 		link(rel='stylesheet', href='/css/styles.css')
 	body
-		script(src='/js/jquery-2.1.1.js')
-		script(src='/js/moment.js')
-		script(src='/js/clock.js')
-		script(src='/js/hammerjs/hammer.min.js')
-		script(src='/js/angular/angular.js')
-		script(src='/js/angular-ui/ui-bootstrap.js')
-		script(src='/js/angular.route.js')
-		script(src='/js/angular-animate/angular-animate.js')
-		script(src='/js/angular-aria/angular-aria.js')
-		script(src='/js/angular-material/angular-material.js')
-
-		script(type='text/ng-template', id='navtemplate.html')
-			md-button.md-raised.md-primary.md-indigo-theme.nav-btn(href='/').
-				Home
-			md-button.md-raised.md-primary.md-indigo-theme.nav-btn(href='/javascript').
-				Javascript
-			md-button.md-raised.md-warn.nav-btn(ng-click='changePage("youtube", "My Youtube Channel")').
-				My Youtube Channel
-			md-button.md-raised.md-primary.md-indigo-theme.nav-btn(href='/custompc').
-				Custom PC Buidling
-			md-button.md-raised.md-warn.nav-btn.
-				Flash
-			md-button.md-raised.md-primary.md-indigo-theme.nav-btn(href='/profile').
-				Profile
-			md-button.md-raised.md-primary.md-indigo-theme.nav-btn(href='/profile').
-				Contact
-		script(type="text/ng-template", id="calculator.html")
-			div.well.calculator-well
-				fieldset.container
-					div.row
-						div.col-xs-12
-							md-input-container.main-value
-								label.md-red-theme.
-									Total
-								input(type='text', ng-model='$parent.calcTotal')
-					div.row
-						div.col-xs-8.calc-section
-							div.col-xs-4.text-center
-								md-button.md-raised.md-primary.md-red-theme.calc-btn(calc-value='1').
-									One
-							div.col-xs-4.text-center
-								md-button.md-raised.md-primary.md-red-theme.calc-btn(calc-value='2').
-									Two
-							div.col-xs-4.text-center
-								md-button.md-raised.md-primary.md-red-theme.calc-btn(calc-value='3').
-									Three
-							div.col-xs-4.text-center
-								md-button.md-raised.md-primary.md-red-theme.calc-btn(calc-value='4').
-									Four
-							div.col-xs-4.text-center
-								md-button.md-raised.md-primary.md-red-theme.calc-btn(calc-value='5').
-									Five
-							div.col-xs-4.text-center
-								md-button.md-raised.md-primary.md-red-theme.calc-btn(calc-value='6').
-									Six
-							div.col-xs-4.text-center
-								md-button.md-raised.md-primary.md-red-theme.calc-btn(calc-value='7').
-									Seven
-							div.col-xs-4.text-center
-								md-button.md-raised.md-primary.md-red-theme.calc-btn(calc-value='8').
-									Eight
-							div.col-xs-4.text-center
-								md-button.md-raised.md-primary.md-red-theme.calc-btn(calc-value='9').
-									Nine
-							div.col-xs-4
-							div.col-xs-4.text-center
-								md-button.md-raised.md-primary.md-red-theme.calc-btn(calc-value='0').
-									Zero
-						div.col-xs-4.calc-section
-							div.col-xs-1.col-md-4.text-center
-								md-button.md-raised.md-primary.md-red-theme.calc-btn(calc-operator='+')
-									span.hidden-sm.hidden-xs.
-										Add
-									span.hidden-lg.hidden-md.
-										+
-							div.col-xs-1.col-md-4.text-center
-								md-button.md-raised.md-primary.md-red-theme.calc-btn(calc-operator='-')
-									span.hidden-sm.hidden-xs.
-										Subtract
-									span.hidden-lg.hidden-md.
-										-
-							div.col-xs-1.col-md-4.text-center
-								md-button.md-raised.md-primary.md-red-theme.calc-btn(calc-operator='*')
-									span.hidden-sm.hidden-xs.
-										Multiply
-									span.hidden-lg.hidden-md.
-										*
-							div.col-xs-1.col-md-4.text-center
-								md-button.md-raised.md-primary.md-red-theme.calc-btn(calc-operator='/')
-									span.hidden-sm.hidden-xs.
-										Divide
-									span.hidden-lg.hidden-md.
-										/
-							div.col-xs-12.col-md-12.text-center
-								md-button.md-raised.md-primary.md-red-theme.calc-btn.equals-btn(calc-equals)
-									span.hidden-sm.hidden-xs.
-										Equals
-									span.hidden-lg.hidden-md.
-										=
-		script(src='/js/features/calculator.js')
-		script(src='/js/angular-app.js')
-		script(src='/js/controllers.js')
-		script(src='/js/services.js')
-		script(src='/js/directives.js')
+		script(src='/js/vendor-scripts.js')
 		div.ng-cloak(ng-controller='MainCtrl', ng-cloak)
 			div.container(md-theme='indigo')
 				div.title-container.text-center
@@ -116,12 +13,12 @@ html(ng-app='mainApp')
 				div.md-whiteframe-z2.row.page-content
 					md-toolbar(layout='row')
 						div.md-toolbar-tools
-							span.col-md-12.hidden-xs.hidden-md.hidden-sm(ng-include="'navtemplate.html'")
+							span.col-md-12.hidden-xs.hidden-md.hidden-sm(ng-include="'navigation.html'")
 							span.text-center
 								md-button.md-raised.md-primary.md-indigo-theme.nav-btn.hidden-lg.navigation-toggle(ng-click="isCollapsed = !isCollapsed").
 									Navigation
 								div.hidden-lg.collapse-nav(collapse='isCollapsed')
-									div(layout='column', ng-include="'navtemplate.html'")
+									div(layout='column', ng-include="'navigation.html'")
 							md-button.md-fab.md-primary.nav-fab-button.first-nav-fab.hidden-xs(aria-label='sidebar', ng-click='toggleRight()')
 								md-tooltip.
 									Open Sidebar

@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('mainApp')
 
 	.controller('MainCtrl', function($scope, $mdToast, $animate, $mdSidenav, $mdDialog, $interpolate, $timeout, restService) {
@@ -28,8 +26,6 @@ angular.module('mainApp')
 		$scope.calcTotal = '';
 
 		$scope.prevValue = 0;
-
-		var $template = $.get('/js/templates/calculator.html').then(function(data) {return data;});
 
 		function evalAsync(page) {
 			$scope.$evalAsync(function() {
@@ -108,14 +104,14 @@ angular.module('mainApp')
 	});
 
 
-function DialogController($scope, $mdDialog) {
-	$scope.hide = function() {
-		$mdDialog.hide();
-	};
-	$scope.cancel = function() {
-		$mdDialog.cancel();
-	};
-	$scope.answer = function(answer) {
-		$mdDialog.hide(answer);
-	};
-}
+	function DialogController($scope, $mdDialog) {
+		$scope.hide = function() {
+			$mdDialog.hide();
+		};
+		$scope.cancel = function() {
+			$mdDialog.cancel();
+		};
+		$scope.answer = function(answer) {
+			$mdDialog.hide(answer);
+		};
+	}

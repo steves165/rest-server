@@ -9,6 +9,9 @@ var cat = require('gulp-cat');
 var templateCache = require('gulp-angular-templatecache');
 var htmlreplace = require('gulp-html-replace');
 
+var TEMPLATE_HEADER = '(function() {       "use strict"; angular.module("<%= module %>"<%= standalone %>).run(["$templateCache", function($templateCache) {';
+var TEMPLATE_FOOTER = '}]);})();';
+
 var srcRoot = './src/main/'
 
 var paths = {
@@ -25,13 +28,34 @@ var paths = {
 	}
 };
 
-gulp.task('scripts-build', function() {
-	gulp.src(paths.src.js + '**/*.*')
+var orderedScripts = [
+	paths.src.js + 'jquery-2.1.1.js',
+	paths.src.js + 'moment.js',
+	paths.src.js + 'clock.js',
+	paths.src.js + 'hammerjs/hammer.js',
+	paths.src.js + 'angular/angular.js',
+	paths.src.js + 'angular-ui/ui-bootstrap.js',
+	paths.src.js + 'angular-animate/angular-animate.js',
+	paths.src.js + 'angular-aria/angular-aria.js',
+	paths.src.js + 'angular-material/angular-material.js',
+	paths.src.js + 'angular-app.js',
+	paths.src.js + 'templates/templates.js',
+	paths.src.js + 'features/calculator.js',
+	paths.src.js + 'controllers.js',
+	paths.src.js + 'services.js',
+	paths.src.js + 'directives.js'
+];
+
+gulp.task('scripts-build', ['template-cache'], function() {
+	gulp.src(orderedScripts)
+		.pipe(sourcemaps.init())
 		.pipe(plumber(function (error) {
             gutil.log(gutil.colors.red(error.message));
             gutil.beep();
             this.emit('end');
         }))
+        .pipe(concat('vendor-scripts.js'))
+        .pipe(sourcemaps.write('/js/maps'))
 		.pipe(gulp.dest(paths.target.public + 'js'));
 });
 
@@ -46,6 +70,16 @@ gulp.task('styles-build', function() {
 		.pipe(sass())
 		.pipe(sourcemaps.write(paths.target.public + 'css/maps'))
 		.pipe(gulp.dest(paths.target.public + 'css'));
+});
+
+gulp.task('template-cache', function() {
+	gulp.src(srcRoot + "html/**/*.html")
+        .pipe(templateCache({
+            module: "mainApp",
+            templateHeader: TEMPLATE_HEADER,
+            templateFooter: TEMPLATE_FOOTER
+        }))
+        .pipe(gulp.dest(paths.src.js + "/templates/"));
 });
 
 gulp.task('images-copy', function() {

@@ -1,6 +1,1 @@
-(function() {
-	'use strict';
-
-	angular.module('mainApp', ['ngMaterial', 'ngRoute', 'ui.bootstrap', 'calculator']);
-
-})();
+angular.module('mainApp', ['ngMaterial', 'ui.bootstrap', 'calculator']);
