@@ -47,62 +47,76 @@ var orderedScripts = [
 ];
 
 gulp.task('scripts-build', ['template-cache'], function() {
+	'use strict';
+
 	gulp.src(orderedScripts)
 		.pipe(sourcemaps.init())
 		.pipe(plumber(function (error) {
-            gutil.log(gutil.colors.red(error.message));
-            gutil.beep();
-            this.emit('end');
-        }))
-        .pipe(concat('scripts.js'))
-        .pipe(sourcemaps.write('js/maps'))
+			gutil.log(gutil.colors.red(error.message));
+			gutil.beep();
+			this.emit('end');
+		}))
+		.pipe(concat('scripts.js'))
+		.pipe(sourcemaps.write('js/maps'))
 		.pipe(gulp.dest(paths.target.public + 'js'));
 });
 
 gulp.task('styles-build', function() {
+	'use strict';
+
 	gulp.src(paths.src.sass + 'styles.scss')
 		.pipe(sourcemaps.init())
 		.pipe(plumber(function (error) {
-            gutil.log(gutil.colors.red(error.message));
-            gutil.beep();
-            this.emit('end');
-        }))
+			gutil.log(gutil.colors.red(error.message));
+			gutil.beep();
+			this.emit('end');
+		}))
 		.pipe(sass())
 		.pipe(sourcemaps.write(paths.target.public + 'css/maps'))
 		.pipe(gulp.dest(paths.target.public + 'css'));
 });
 
 gulp.task('template-cache', function() {
+	'use strict';
+
 	gulp.src(srcRoot + "html/**/*.html")
-        .pipe(templateCache({
-            module: "mainApp",
-            templateHeader: TEMPLATE_HEADER,
-            templateFooter: TEMPLATE_FOOTER
-        }))
-        .pipe(gulp.dest(paths.src.js + "/templates/"));
+		.pipe(templateCache({
+			module: "mainApp",
+			templateHeader: TEMPLATE_HEADER,
+			templateFooter: TEMPLATE_FOOTER
+		}))
+		.pipe(gulp.dest(paths.src.js + "/templates/"));
 });
 
 gulp.task('images-copy', function() {
+	'use strict';
+
 	gulp.src(paths.src.images + '**/*.*')
 		.pipe(plumber(function (error) {
-            gutil.log(gutil.colors.red(error.message));
-            gutil.beep();
-            this.emit('end');
-        }))
+			gutil.log(gutil.colors.red(error.message));
+			gutil.beep();
+			this.emit('end');
+		}))
 		.pipe(gulp.dest(paths.target.public + 'images'));
 });
 
 gulp.task('views-build', function() {
+	'use strict';
+
 	gulp.src(paths.src.views + '**/*.jade')
 		.pipe(gulp.dest(paths.target.root + 'views'));
 });
 
 gulp.task('routes-build', function() {
+	'use strict';
+
 	gulp.src(paths.src.routes + '**/*.js')
 		.pipe(gulp.dest(paths.target.root + 'routes'));
 });
 
 gulp.task('server-construct', function() {
+	'use strict';
+	
 	gulp.src(srcRoot + 'server/**/*')
 		.pipe(gulp.dest(paths.target.root));
 });
