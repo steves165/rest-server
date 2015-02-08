@@ -55,7 +55,7 @@ gulp.task('scripts-build', ['template-cache'], function() {
             this.emit('end');
         }))
         .pipe(concat('vendor-scripts.js'))
-        .pipe(sourcemaps.write('/js/maps'))
+        .pipe(sourcemaps.write('/maps'))
 		.pipe(gulp.dest(paths.target.public + 'js'));
 });
 
