@@ -54,7 +54,7 @@ gulp.task('scripts-build', ['template-cache'], function() {
             gutil.beep();
             this.emit('end');
         }))
-        .pipe(concat('vendor-scripts.js'))
+        .pipe(concat('scripts.js'))
         .pipe(sourcemaps.write('js/maps'))
 		.pipe(gulp.dest(paths.target.public + 'js'));
 });
