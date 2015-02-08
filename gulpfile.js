@@ -104,6 +104,11 @@ gulp.task('views-build', function() {
 	'use strict';
 
 	gulp.src(paths.src.views + '**/*.jade')
+		.pipe(plumber(function (error) {
+			gutil.log(gutil.colors.red(error.message));
+			gutil.beep();
+			this.emit('end');
+		}))
 		.pipe(gulp.dest(paths.target.root + 'views'));
 });
 
@@ -111,13 +116,23 @@ gulp.task('routes-build', function() {
 	'use strict';
 
 	gulp.src(paths.src.routes + '**/*.js')
+		.pipe(plumber(function (error) {
+			gutil.log(gutil.colors.red(error.message));
+			gutil.beep();
+			this.emit('end');
+		}))
 		.pipe(gulp.dest(paths.target.root + 'routes'));
 });
 
 gulp.task('server-construct', function() {
 	'use strict';
-	
+
 	gulp.src(srcRoot + 'server/**/*')
+		.pipe(plumber(function (error) {
+			gutil.log(gutil.colors.red(error.message));
+			gutil.beep();
+			this.emit('end');
+		}))
 		.pipe(gulp.dest(paths.target.root));
 });
 
