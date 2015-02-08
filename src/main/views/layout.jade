@@ -4,8 +4,8 @@ html(ng-app='mainApp')
 		meta#viewport(name="viewport", content="width=device-width,minimum-scale=1.0,initial-scale=1.0")
 		title= title
 		link(rel='stylesheet', href='/css/styles.css')
+		script(type='text/javascript', src='/js/vendor-scripts.js')
 	body
-		script(src='/js/vendor-scripts.js')
 		div.ng-cloak(ng-controller='MainCtrl', ng-cloak)
 			div.container(md-theme='indigo')
 				div.title-container.text-center
