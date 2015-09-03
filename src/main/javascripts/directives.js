@@ -1,7 +1,18 @@
 angular.module('mainApp')
-
-	.directive('restSwitch', function() {
-		return function($scope, $element) {
-			$scope.changePage('youtube', 'Welcome to my Youtube channel');
-		};
+	.directive('scrollOnClick', function() {
+	  return {
+		restrict: 'A',
+		link: function(scope, $elm, attrs) {
+		  var idToScroll = attrs.href;
+		  $elm.on('click', function() {
+			var $target;
+			if (idToScroll) {
+			  $target = $(idToScroll);
+			} else {
+			  $target = $elm;
+			}
+			$("body").animate({scrollTop: $target.offset().top}, "slow");
+		  });
+		}
+	  }
 	});

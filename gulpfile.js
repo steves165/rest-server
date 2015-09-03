@@ -31,16 +31,15 @@ var paths = {
 var orderedScripts = [
 	paths.src.js + 'jquery-2.1.1.js',
 	paths.src.js + 'moment.js',
-	paths.src.js + 'clock.js',
 	paths.src.js + 'hammerjs/hammer.js',
 	paths.src.js + 'angular/angular.js',
 	paths.src.js + 'angular-ui/ui-bootstrap.js',
 	paths.src.js + 'angular-animate/angular-animate.js',
 	paths.src.js + 'angular-aria/angular-aria.js',
-	paths.src.js + 'angular-material/angular-material.js',
+	'./node_modules/angular-material/angular-material.js',
 	paths.src.js + 'angular-app.js',
 	paths.src.js + 'templates/templates.js',
-	paths.src.js + 'features/calculator.js',
+	paths.src.js + 'features/hero-banner.js',
 	paths.src.js + 'controllers.js',
 	paths.src.js + 'services.js',
 	paths.src.js + 'directives.js'

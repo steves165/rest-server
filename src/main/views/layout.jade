@@ -6,29 +6,5 @@ html(ng-app='mainApp')
 		link(rel='stylesheet', href='/css/styles.css')
 		script(type='text/javascript', src='/js/scripts.js')
 	body
-		div.ng-cloak(ng-controller='MainCtrl', ng-cloak)
-			div.container(md-theme='indigo')
-				div.title-container.text-center
-					h1= title
-				div.md-whiteframe-z2.row.page-content
-					md-toolbar(layout='row')
-						div.md-toolbar-tools
-							span.col-md-12.hidden-xs.hidden-md.hidden-sm(ng-include="'navigation.html'")
-							span.text-center
-								md-button.md-raised.md-primary.md-indigo-theme.nav-btn.hidden-lg.navigation-toggle(ng-click="isCollapsed = !isCollapsed").
-									Navigation
-								div.hidden-lg.collapse-nav(collapse='isCollapsed')
-									div(layout='column', ng-include="'navigation.html'")
-							md-button.md-fab.md-primary.nav-fab-button.first-nav-fab.hidden-xs(aria-label='sidebar', ng-click='toggleRight()')
-								md-tooltip.
-									Open Sidebar
-								md-icon(icon='/images/sidebar.svg')
-							md-button.md-fab.md-primary.nav-fab-button.hidden-xs(md-theme='cyan', ng-click='showAdvanced($event)')
-								md-tooltip.
-									Show Clock
-								md-icon(icon='/images/time.svg', style='top: 7px; position: absolute; left: 16px;')
-					div.content-container(layout='row')
-						md-content.md-padding.md-indigo-theme.main-content(layout='column')
-							div
-								block content
-					include sidebar
+		div.container(md-theme='indigo', hero-banner-fader, ng-controller='heroMenu')
+			block content

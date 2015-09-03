@@ -1,7 +1,12 @@
 //Vendor
-@import "bootstrap-sass/stylesheets/_bootstrap";
-@import "themes/themes";
-@import "angular-material";
+@import 'bootstrap-sass/stylesheets/_bootstrap';
+@import 'themes/themes';
+@import 'angular-material';
 
 //Deceiver
-@import "style";
+@import 'general/variables';
+@import 'layouts/layout';
+@import 'js-page';
+@import 'style';
+@import 'features/calculator';
+@import 'features/hero-banner';

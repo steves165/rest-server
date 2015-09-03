@@ -1,0 +1,29 @@
+.arrow-up {
+	width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid $gray-lighter;
+
+	margin-left: 30px;
+}
+
+.nav-fab-button {
+  	position: absolute;
+  	right: 0;
+  	top: 3px;
+  	padding-left: 17px;
+	padding-top: 10px;
+}
+
+.first-nav-fab {
+  	right: 70px;
+}
+
+.last-nav-fab {
+	md-icon {
+		top: 15px;
+		position: absolute;
+		left: 18px;
+	}
+}

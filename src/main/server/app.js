@@ -34,7 +34,7 @@ app.use('/javascript', javascript);
 app.use('/custompc', custompc);
 app.use('/youtube', yt);
 app.use('/users', users);
-app.use('/.rest', restMain);
+app.use('/.rest', rest);
 app.use('/profile', profile);
 
 // catch 404 and forward to error handler

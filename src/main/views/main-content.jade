@@ -5,6 +5,7 @@ div.main-cont(layout='column')
 	if links
 		div(flex)
 			each link in links
-				md-button.md-raised.md-primary.md-indigo-theme(ng-init=link.open + 'Collapse=true', ng-click=link.open + 'Collapse = !' + link.open + 'Collapse')= link.text
-				div.collapse-section(collapse=link.open + 'Collapse')
-					calculator-build
+				md-button.md-raised.md-primary.md-indigo-theme.collapse-button(ng-init=link.open + 'Collapse=true', ng-click=link.open + 'Collapse = !' + link.open + 'Collapse')= link.text
+			each link in links
+				div.collapse-section(collapse=link.open + 'Collapse' id=link.open)
+					javascript-build(js-page=link.open)

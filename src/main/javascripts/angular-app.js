@@ -1,1 +1,1 @@
-angular.module('mainApp', ['ngMaterial', 'ui.bootstrap', 'calculator']);
+angular.module('mainApp', ['ngMaterial', 'ui.bootstrap']);
